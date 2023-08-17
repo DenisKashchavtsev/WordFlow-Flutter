@@ -41,6 +41,7 @@ dependencies:
   provider: ^6.0.5
   flutter_secure_storage: ^8.0.0
   shared_preferences: ^2.1.1
+  image_picker: ^0.8.7+1
 
 dev_dependencies:
   flutter_test:
@@ -65,9 +66,11 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+   - assets/images/logo.png
+   - assets/images/btn/btn_start.png
+   - assets/images/btn/btn_start_white.png
+   - assets/images/btn/back.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -91,6 +94,13 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+  fonts:
+    - family: JakartaSans
+      fonts:
+        - asset: fonts/PlusJakartaSans-Regular.ttf
+        - asset: fonts/PlusJakartaSans-Bold.ttf
+        - asset: fonts/PlusJakartaSans-Light.ttf
+        - asset: fonts/PlusJakartaSans-Medium.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

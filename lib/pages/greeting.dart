@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../configs/styles.dart';
 
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+class Greeting extends StatelessWidget {
+  const Greeting({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
-        backgroundColor: Styles.mainColor,
+        backgroundColor: Styles.colorMain,
         elevation: 0,
       ),
       body: Column(
@@ -20,7 +20,7 @@ class Home extends StatelessWidget {
               Container(
                 height: 350,
                 decoration: const BoxDecoration(
-                    color: Styles.mainColor,
+                    color: Styles.colorMain,
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(40.0),
                       bottomRight: Radius.circular(40.0),
@@ -92,7 +92,7 @@ class Home extends StatelessWidget {
                                 },
                                 child: const Text(
                                   'Register',
-                                  style: TextStyle(color: Styles.mainColor),
+                                  style: TextStyle(color: Styles.colorMain),
                                 ),
                               ),
                             ),

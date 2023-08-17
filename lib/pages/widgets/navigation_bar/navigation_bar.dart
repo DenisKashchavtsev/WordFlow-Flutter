@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../navigation/dashboard.dart';
-import '../navigation/my_learning.dart';
+import '../../home/home.dart';
+import '../../learning/learning.dart';
 
 class BottomNavigationBarWrapper extends StatefulWidget {
   const BottomNavigationBarWrapper({super.key});
@@ -17,8 +17,8 @@ class _BottomNavigationBarWrapperState
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    Dashboard(),
-    MyLearning(),
+    Home(),
+    Learning(),
     Text(
       'Index 2: School',
       style: optionStyle,
@@ -44,12 +44,12 @@ class _BottomNavigationBarWrapperState
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.play_lesson),
-            label: 'My learning',
+            icon: Icon(Icons.school),
+            label: 'Learning',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
         currentIndex: _selectedIndex,

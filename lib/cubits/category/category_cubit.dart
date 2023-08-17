@@ -1,46 +1,73 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 
+import '../../models/word_category.dart';
+import '../../models/word_word.dart';
+import '../../service_locator.dart';
+import '../../services/api/category_service.dart';
+import '../../services/navigation_service.dart';
+
 part 'category_state.dart';
 
 class CategoryCubit extends Cubit<CategoryState> {
   CategoryCubit() : super(CategoryStateInitial());
 
+  CategoryService get _categoryService => ServiceLocator().categoryService;
+
   getList({int page = 1}) async {
-    // print(page);
-    // emit(CategoryStateLoading());
-    // emit(CategoryStateLoaded(chats: await _chatRepository.getList(page)));
+    await _categoryService.getList(page).then((response) async {
+      if (response.isEmpty && page == 1) {
+        emit(CategoriesStateEmpty());
+      } else if(response.isNotEmpty) {
+        if (state is CategoriesStateLoaded) {
+          final currentState = state as CategoriesStateLoaded;
+          if (currentState.categories.isNotEmpty) {
+            response = [...currentState.categories, ...response];
+          }
+        }
+        emit(CategoriesStateLoaded(categories: response, page: page));
+      }
+    });
   }
 
-  getOne(doc) async {
-    // emit(CategoryStateLoading());
-    // emit(CategoryStateLoaded(chat: await _chatRepository.getOne(doc)));
+  getOne(id) async {
+    await _categoryService.show(id).then((response) async {
+      emit(CategoryStateLoaded(category: response, words: const [], page: 1));
+    });
+
+    getCategoryWords(id: id, page: 1);
+  }
+
+  getCategoryWords({required String id, required int page}) async {
+
+    await _categoryService.getCategoryWords(id, page).then((response) async {
+
+      if (state is CategoryStateLoaded) {
+        final currentState = state as CategoryStateLoaded;
+        if (currentState.words.isNotEmpty) {
+          response = [...currentState.words, ...response];
+        }
+        emit(CategoryStateLoaded(category: currentState.category, words: response, page: page));
+      }
+    });
   }
 
   create(name) async {
-    // emit(CategoryStateLoading());
-    // if (await _chatRepository.create(name, _auth.currentUser?.uid)) {
-    //   emit(CategoryStateCreated());
-    // } else {
-    //   emit(CategoryStateError());
-    // }
+    await _categoryService.create(name).then((response) async {
+      emit(CategoryStateCreated());
+      NavigationService().back();
+    });
   }
 
-  update(doc, name) async {
-    // emit(CategoryStateLoading());
-    // if (await _chatRepository.update(doc, name)) {
-    //   emit(CategoryStateUpdated());
-    // } else {
-    //   emit(CategoryStateError());
-    // }
+  update(id, name) async {
+    await _categoryService.update(id, name).then((response) async {
+      emit(CategoryStateUpdated());
+      NavigationService().back();
+    });
   }
 
-  delete(doc) async {
-    // emit(CategoryStateLoading());
-    // if (await _chatRepository.delete(doc)) {
-    //   emit(CategoryStateDeleted());
-    // } else {
-    //   emit(CategoryStateError());
-    // }
+  delete(List ids) async {
+    _categoryService.delete(ids);
+    emit(CategoryStateDeleted());
   }
 }

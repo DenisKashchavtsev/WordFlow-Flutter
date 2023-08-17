@@ -5,15 +5,22 @@ abstract class CategoryState {}
 
 class CategoryStateInitial extends CategoryState {}
 
-class CategoryStateLoading extends CategoryState {}
-
 class CategoryStateLoaded extends CategoryState {
-  final Category? category;
-  final List<Category>? categories;
+  final WordCategory category;
+  final List<WordWord> words;
   final int? page;
 
-  CategoryStateLoaded({this.category, this.categories, this.page});
+  CategoryStateLoaded({required this.category, required this.words, required this.page});
 }
+
+class CategoriesStateLoaded extends CategoryState {
+  final List<WordCategory> categories;
+  final int? page;
+
+  CategoriesStateLoaded({required this.categories, this.page});
+}
+
+class CategoriesStateEmpty extends CategoryState {}
 
 class CategoryStateCreated extends CategoryState {}
 
