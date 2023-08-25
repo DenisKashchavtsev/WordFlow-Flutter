@@ -1,13 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:word_flow/pages/category/create_category.dart';
+import 'package:word_flow/pages/category/show_category.dart';
+import 'package:word_flow/pages/greeting.dart';
+import 'package:word_flow/pages/word/create_word.dart';
 
 import 'cubits/category/category_cubit.dart';
 import 'cubits/user/user_cubit.dart';
-import 'pages/categories/create_category.dart';
+import 'cubits/word/word_cubit.dart';
+import 'pages/category/update_category.dart';
 import 'pages/dashboard.dart';
-import 'pages/home.dart';
-import 'pages/auth/login.dart';
-import 'pages/auth/register.dart';
+import 'pages/auth/login/login.dart';
+import 'pages/auth/register/register.dart';
+import 'pages/word/update_word.dart';
 
 class Routes {
   final BuildContext context;
@@ -16,12 +21,12 @@ class Routes {
 
   Map<String, Widget Function(BuildContext)> getRoutes() {
     return {
-      '/': (context) => const Home(),
+      '/': (context) => const Greeting(),
       '/login': (context) => BlocProvider(
             create: (BuildContext context) => UserCubit(),
             child: Login(),
           ),
-      '/register': (context) => BlocProvider(
+      '/registration': (context) => BlocProvider(
             create: (BuildContext context) => UserCubit(),
             child: Register(),
           ),
@@ -38,11 +43,42 @@ class Routes {
                 },
               ),
             ],
-            child: Dashboard(),
+            child: const Dashboard(),
           ),
       '/create-category': (context) => BlocProvider(
             create: (BuildContext context) => CategoryCubit(),
             child: CreateCategory(),
+          ),
+
+      '/update-category': (context) => BlocProvider(
+        create: (BuildContext context) => CategoryCubit(),
+        child: const UpdateCategory(),
+      ),
+
+      '/show-category': (context) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) {
+              return CategoryCubit();
+            },
+          ),
+          BlocProvider(
+            create: (context) {
+              return WordCubit();
+            },
+          ),
+        ],
+        child: const ShowCategory(),
+      ),
+
+      '/create-word': (context) => BlocProvider(
+            create: (BuildContext context) => WordCubit(),
+            child: const CreateWord(),
+          ),
+
+      '/update-word': (context) => BlocProvider(
+            create: (BuildContext context) => WordCubit(),
+            child: const UpdateWord(),
           ),
     };
   }

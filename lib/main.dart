@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:word_flow/pages/widgets/navigation_bar.dart';
 
 import 'configs/styles.dart';
 import 'cubits/user/user_cubit.dart';
@@ -22,9 +21,21 @@ class App extends StatelessWidget {
         BlocProvider(create: (_) => UserCubit()),
       ],
       child: MaterialApp(
+        builder: (context, child) {
+          double statusBarHeight = MediaQuery.of(context).padding.top;
+          double navigationBarHeight = MediaQuery.of(context).padding.bottom;
+
+          return Padding(
+            padding: EdgeInsets.only(
+              top: statusBarHeight,
+              bottom: navigationBarHeight,
+            ),
+            child: child,
+          );
+        },
         navigatorKey: NavigationService.navigationKey,
         routes: Routes(context).getRoutes(),
-        theme: ThemeData(scaffoldBackgroundColor: Styles.bodyColor),
+        theme: ThemeData(scaffoldBackgroundColor: Styles.colorBody),
       ),
     );
   }
