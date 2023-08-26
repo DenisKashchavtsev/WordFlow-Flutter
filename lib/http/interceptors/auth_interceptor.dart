@@ -9,12 +9,14 @@ class AuthInterceptor extends Interceptor {
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
+
+    options.headers['Content-Type'] = 'application/json';
+
     await _storage.read(key: 'access_token').then((value) {
       if (value != null) {
         options.headers['Authorization'] = 'Bearer $value';
       }
     });
-    print(options);
     super.onRequest(options, handler);
   }
 

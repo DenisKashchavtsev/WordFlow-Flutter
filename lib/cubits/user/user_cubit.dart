@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../service_locator.dart';
-import '../../services/auth_service.dart';
+import '../../services/api/auth_service.dart';
 import '../../services/navigation_service.dart';
 
 part 'user_state.dart';
@@ -17,9 +17,7 @@ class UserCubit extends Cubit<UserState> {
   final _storage = const FlutterSecureStorage();
 
   Future<void> getCurrentUser() async {
-    emit(UserStateLoading());
     _authService.getCurrentUser().then((response) async {
-      emit(UserStateCurrentUserLoaded(user: response));
       final prefs = await SharedPreferences.getInstance();
       prefs.setString('user.ulid', response['ulid']);
       prefs.setString('user.email', response['email']);
@@ -33,7 +31,6 @@ class UserCubit extends Cubit<UserState> {
     emit(UserStateLoading());
 
     _authService.login(email, password).then((response) async {
-      print(response['token']);
       await _storage.write(
         key: 'access_token',
         value: response['token'],
@@ -43,6 +40,7 @@ class UserCubit extends Cubit<UserState> {
         value: response['refresh_token'],
       );
       emit(UserStateToken(tokens: response));
+      await getCurrentUser();
       emit(UserStateLoaded());
       NavigationService().openDashboard();
     }).catchError((onError) {
@@ -75,8 +73,7 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
-  Future<void> register(
-      context, String name, String email, String password) async {
+  Future<void> register(String name, String email, String password) async {
     emit(UserStateLoading());
     _authService.register(name, email, password).then((response) {
       emit(UserStateToken(tokens: response));
