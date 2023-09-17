@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'register_app_bar.dart';
-import 'register_form.dart';
-import 'register_header.dart';
+import 'widgets/register_app_bar.dart';
+import 'widgets/register_form.dart';
+import 'widgets/register_header.dart';
 
 class Register extends StatelessWidget {
   const Register({Key? key}) : super(key: key);

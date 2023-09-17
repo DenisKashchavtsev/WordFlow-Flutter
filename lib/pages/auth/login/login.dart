@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'login_app_bar.dart';
-import 'login_form.dart';
-import 'login_header.dart';
+import 'widgets/login_app_bar.dart';
+import 'widgets/login_form.dart';
+import 'widgets/login_header.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
