@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../configs/styles.dart';
-import '../../cubits/category/category_cubit.dart';
-import '../../cubits/user/user_cubit.dart';
-import '../widgets/logos/logo_white.dart';
-import '../widgets/wrappers/elevated_button_wrapper.dart';
-import '../widgets/wrappers/text_button_wrapper.dart';
-import '../widgets/wrappers/text_field_white_wrapper.dart';
+import '../../../configs/styles.dart';
+import '../../../cubits/category/category_cubit.dart';
+import '../../../cubits/user/user_cubit.dart';
+import '../../widgets/logos/logo_white.dart';
+import '../../widgets/wrappers/elevated_button_wrapper.dart';
+import '../../widgets/wrappers/text_button_wrapper.dart';
+import '../../widgets/wrappers/text_field_white_wrapper.dart';
 
 class HomePopularCategories extends StatelessWidget {
   const HomePopularCategories({Key? key}) : super(key: key);

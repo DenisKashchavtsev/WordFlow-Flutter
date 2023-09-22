@@ -39,7 +39,6 @@ class CategoryCubit extends Cubit<CategoryState> {
   }
 
   getCategoryWords({required String id, required int page}) async {
-
     await _categoryService.getCategoryWords(id, page).then((response) async {
 
       if (state is CategoryStateLoaded) {
@@ -55,19 +54,20 @@ class CategoryCubit extends Cubit<CategoryState> {
   create(name) async {
     await _categoryService.create(name).then((response) async {
       emit(CategoryStateCreated());
-      NavigationService().back();
+      NavigationService().openDashboard(selectedIndex: NavigationService.dashboardLearningTab);
     });
   }
 
   update(id, name) async {
     await _categoryService.update(id, name).then((response) async {
       emit(CategoryStateUpdated());
-      NavigationService().back();
+      NavigationService().openDashboard(selectedIndex: NavigationService.dashboardLearningTab);
     });
   }
 
   delete(List ids) async {
     _categoryService.delete(ids);
     emit(CategoryStateDeleted());
+    NavigationService().openDashboard(selectedIndex: NavigationService.dashboardLearningTab);
   }
 }

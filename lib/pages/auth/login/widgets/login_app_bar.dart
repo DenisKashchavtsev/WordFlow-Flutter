@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../services/navigation_service.dart';
-import '../../widgets/logos/logo.dart';
-import '../../widgets/wrappers/text_button_wrapper.dart';
+import '../../../../services/navigation_service.dart';
+import '../../../widgets/logos/logo.dart';
+import '../../../widgets/wrappers/text_button_wrapper.dart';
 
 class LoginAppBar extends StatelessWidget implements PreferredSizeWidget {
   const LoginAppBar({Key? key}) : super(key: key);

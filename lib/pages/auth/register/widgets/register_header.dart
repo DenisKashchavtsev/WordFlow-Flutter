@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../configs/styles.dart';
+import '../../../../configs/styles.dart';
 
 class RegisterHeader extends StatelessWidget {
   const RegisterHeader({Key? key}) : super(key: key);

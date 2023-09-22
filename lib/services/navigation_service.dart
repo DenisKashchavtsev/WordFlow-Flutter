@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class NavigationService {
+  static const dashboardHomeTab = 0;
+  static const dashboardLearningTab = 1;
+  static const dashboardSettingTab = 2;
+
   static final navigationKey = GlobalKey<NavigatorState>();
 
   BuildContext? get context => navigationKey.currentContext!;
@@ -13,8 +17,10 @@ class NavigationService {
     Navigator.pushReplacementNamed(context!, '/registration');
   }
 
-  void openDashboard() {
-    Navigator.pushReplacementNamed(context!, '/dashboard');
+  void openDashboard({selectedIndex = 0}) {
+    Navigator.pushReplacementNamed(context!, '/dashboard', arguments: {
+      'selectedIndex': selectedIndex,
+    });
   }
 
   void openCreateCategory() {

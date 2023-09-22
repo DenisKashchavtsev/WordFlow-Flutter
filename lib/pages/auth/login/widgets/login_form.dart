@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../configs/styles.dart';
-import '../../../cubits/user/user_cubit.dart';
-import '../../widgets/notifications/error.dart';
-import '../../widgets/wrappers/elevated_button_wrapper.dart';
-import '../../widgets/wrappers/text_field_wrapper.dart';
+import '../../../../configs/styles.dart';
+import '../../../../cubits/user/user_cubit.dart';
+import '../../../widgets/notifications/error.dart';
+import '../../../widgets/wrappers/elevated_button_wrapper.dart';
+import '../../../widgets/wrappers/text_field_wrapper.dart';
 
-class RegisterForm extends StatelessWidget {
-  RegisterForm({Key? key}) : super(key: key);
+class LoginForm extends StatelessWidget {
+  LoginForm({Key? key}) : super(key: key);
 
-  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -34,21 +33,6 @@ class RegisterForm extends StatelessWidget {
         ),
         Column(
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: TextFieldWrapper(
-                      controller: _nameController,
-                      prefixIcon: Icons.person_outline_outlined,
-                      hintText: 'Full name',
-                    ),
-                  ),
-                ],
-              ),
-            ),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
               child: Row(
@@ -85,10 +69,10 @@ class RegisterForm extends StatelessWidget {
                   Expanded(
                     child: ElevatedButtonWrapper(
                         onPressed: () {
-                          context.read<UserCubit>().register(
-                              _nameController.text, _emailController.text, _passwordController.text);
+                          context.read<UserCubit>().login(
+                              _emailController.text, _passwordController.text);
                         },
-                        child: const Text('Register')),
+                        child: const Text('Login')),
                   ),
                 ],
               ),

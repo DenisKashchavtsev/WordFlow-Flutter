@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../configs/styles.dart';
-import '../../services/navigation_service.dart';
-import '../widgets/logos/logo.dart';
-import '../widgets/wrappers/text_button_wrapper.dart';
+import '../../../configs/styles.dart';
+import '../../../services/navigation_service.dart';
+import '../../widgets/logos/logo.dart';
+import '../../widgets/wrappers/text_button_wrapper.dart';
 
 class CategoryHeader extends StatelessWidget {
   const CategoryHeader({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class CategoryHeader extends StatelessWidget {
         children: [
           IconButton(onPressed: () {
             Navigator.pop(context);
-          }, iconSize: 40, icon: Image.asset('images/btn/back.png')),
+          }, iconSize: 40, icon: Image.asset('assets/images/btn/back.png')),
           const Logo(),
         ],
       ),

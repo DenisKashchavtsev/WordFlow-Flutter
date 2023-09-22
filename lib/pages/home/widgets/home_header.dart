@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../configs/styles.dart';
-import '../widgets/logos/logo_white.dart';
-import '../widgets/wrappers/text_field_white_wrapper.dart';
+import '../../../configs/styles.dart';
+import '../../widgets/logos/logo_white.dart';
+import '../../widgets/wrappers/text_field_white_wrapper.dart';
 
 class HomeHeader extends StatefulWidget {
   const HomeHeader({Key? key}) : super(key: key);

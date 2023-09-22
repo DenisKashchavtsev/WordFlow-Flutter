@@ -4,7 +4,9 @@ import '../../home/home.dart';
 import '../../learning/learning.dart';
 
 class BottomNavigationBarWrapper extends StatefulWidget {
-  const BottomNavigationBarWrapper({super.key});
+  final int selectedIndex;
+
+  const BottomNavigationBarWrapper(this.selectedIndex, {super.key});
 
   @override
   State<BottomNavigationBarWrapper> createState() =>
@@ -14,14 +16,20 @@ class BottomNavigationBarWrapper extends StatefulWidget {
 class _BottomNavigationBarWrapperState
     extends State<BottomNavigationBarWrapper> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
+  @override
+  void initState() {
+    super.initState();
+
+    _selectedIndex = widget.selectedIndex;
+  }
+
   static const List<Widget> _widgetOptions = <Widget>[
     Home(),
     Learning(),
     Text(
-      'Index 2: School',
-      style: optionStyle,
+      'Settings',
+      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
     ),
   ];
 

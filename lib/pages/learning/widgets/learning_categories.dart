@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../configs/styles.dart';
-import '../../cubits/category/category_cubit.dart';
-import '../../models/word_category.dart';
-import '../../services/navigation_service.dart';
-import '../widgets/wrappers/text_button_wrapper.dart';
+import '../../../configs/styles.dart';
+import '../../../cubits/category/category_cubit.dart';
+import '../../../models/word_category.dart';
+import '../../../services/navigation_service.dart';
+import '../../widgets/wrappers/text_button_wrapper.dart';
 
 class LearningCategories extends StatefulWidget {
   const LearningCategories({Key? key}) : super(key: key);
@@ -157,7 +157,7 @@ class _LearningCategories extends State<LearningCategories> {
                                     iconSize: 40,
                                     splashRadius: 5,
                                     icon: Image.asset(
-                                        'images/btn/btn_start.png')),
+                                        'assets/images/btn/btn_start.png')),
                               ],
                             )
                           ],

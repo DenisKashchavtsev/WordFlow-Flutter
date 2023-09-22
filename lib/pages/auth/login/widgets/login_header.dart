@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../configs/styles.dart';
+import '../../../../configs/styles.dart';
 
 class LoginHeader extends StatelessWidget {
   const LoginHeader({Key? key}) : super(key: key);

@@ -10,7 +10,7 @@ class LogoWhite extends StatelessWidget {
     return Row(
       children: [
         Image.asset(
-          'images/logo.png',
+          'assets/images/logo.png',
           width: 36,
           height: 36,
         ),
