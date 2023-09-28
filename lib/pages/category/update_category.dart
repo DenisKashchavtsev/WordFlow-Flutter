@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../configs/styles.dart';
 import '../../cubits/category/category_cubit.dart';
-import 'category_form.dart';
-import 'category_header.dart';
+import 'widgets/category_form.dart';
+import 'widgets/category_header.dart';
 
 class UpdateCategory extends StatelessWidget {
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'category_header.dart';
+import 'widgets/category_header.dart';
 import 'category_words.dart';
 
 class ShowCategory extends StatelessWidget {
