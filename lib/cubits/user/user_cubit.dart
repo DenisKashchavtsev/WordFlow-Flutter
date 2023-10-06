@@ -30,7 +30,11 @@ class UserCubit extends Cubit<UserState> {
   Future<void> login(String email, String password) async {
     emit(UserStateLoading());
 
+    print('1');
+
     _authService.login(email, password).then((response) async {
+      print('2');
+
       await _storage.write(
         key: 'access_token',
         value: response['token'],
@@ -39,11 +43,13 @@ class UserCubit extends Cubit<UserState> {
         key: 'refresh_token',
         value: response['refresh_token'],
       );
+
       emit(UserStateToken(tokens: response));
       await getCurrentUser();
       emit(UserStateLoaded());
       NavigationService().openDashboard();
     }).catchError((onError) {
+      print(onError);
       emit(UserStateError(message: 'error'));
     });
   }

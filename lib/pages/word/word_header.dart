@@ -15,7 +15,7 @@ class WordHeader extends StatelessWidget {
         children: [
           IconButton(onPressed: () {
             NavigationService().openDashboard();
-          }, iconSize: 40, icon: Image.asset('images/btn/back.png')),
+          }, iconSize: 40, icon: Image.asset('assets/images/btn/back.png')),
           const Logo(),
         ],
       ),

@@ -7,8 +7,11 @@ class Dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      bottomNavigationBar: BottomNavigationBarWrapper(),
+    final arguments = (ModalRoute.of(context)?.settings.arguments ??
+        <String, dynamic>{}) as Map;
+
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBarWrapper(arguments['selectedIndex'] ?? 0),
     );
   }
 }

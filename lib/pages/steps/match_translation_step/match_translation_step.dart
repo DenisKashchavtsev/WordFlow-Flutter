@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/learning_categories.dart';
-import 'widgets/learning_header.dart';
+import '../widgets/learning_header.dart';
 
-class Learning extends StatelessWidget {
-  const Learning({Key? key}) : super(key: key);
+class MatchTranslationStep extends StatelessWidget {
+  const MatchTranslationStep({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class Learning extends StatelessWidget {
       child: Column(
         children: const [
           LearningHeader(),
-          Expanded(child: LearningCategories())
+          // Expanded(child: )
         ],
       ),
     );

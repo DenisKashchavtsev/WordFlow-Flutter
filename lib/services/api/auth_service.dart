@@ -6,6 +6,7 @@ class AuthService {
   Dio get _dio => DioClient().getClient();
 
   Future<Map<String, dynamic>> login(String email, String password) async {
+    print('&&&&&&');
     try {
       final response = await _dio.post('api/auth/token/login', data: {
         'email': email,
