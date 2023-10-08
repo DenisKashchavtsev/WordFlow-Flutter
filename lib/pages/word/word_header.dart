@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../services/navigation_service.dart';
-import '../widgets/logos/logo.dart';
+import '../../widgets/logos/logo.dart';
 
 class WordHeader extends StatelessWidget {
   const WordHeader({Key? key}) : super(key: key);

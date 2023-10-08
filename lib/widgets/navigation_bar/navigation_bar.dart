@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../home/home.dart';
-import '../../learning/learning.dart';
+import '../../pages/home/home.dart';
+import '../../pages/learning/learning.dart';
 
 class BottomNavigationBarWrapper extends StatefulWidget {
   final int selectedIndex;

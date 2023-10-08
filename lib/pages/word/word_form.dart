@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../cubits/word/word_cubit.dart';
-import '../widgets/wrappers/elevated_button_wrapper.dart';
-import '../widgets/wrappers/text_field_wrapper.dart';
+import '../../widgets/wrappers/elevated_button_wrapper.dart';
+import '../../widgets/wrappers/text_field_wrapper.dart';
 
 class WordForm extends StatelessWidget {
   final TextEditingController _sourceController = TextEditingController();

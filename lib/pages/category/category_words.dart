@@ -5,7 +5,7 @@ import '../../configs/styles.dart';
 import '../../cubits/category/category_cubit.dart';
 import '../../cubits/word/word_cubit.dart';
 import '../../services/navigation_service.dart';
-import '../widgets/wrappers/text_button_wrapper.dart';
+import '../../../widgets/wrappers/text_button_wrapper.dart';
 
 class CategoryWords extends StatefulWidget {
   const CategoryWords({Key? key}) : super(key: key);

@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../configs/styles.dart';
 import '../../../../cubits/user/user_cubit.dart';
-import '../../../widgets/notifications/error.dart';
-import '../../../widgets/wrappers/elevated_button_wrapper.dart';
-import '../../../widgets/wrappers/text_field_wrapper.dart';
+import '../../../../widgets/notifications/error.dart';
+import '../../../../widgets/wrappers/elevated_button_wrapper.dart';
+import '../../../../widgets/wrappers/text_field_wrapper.dart';
 
 class LoginForm extends StatelessWidget {
   LoginForm({Key? key}) : super(key: key);
