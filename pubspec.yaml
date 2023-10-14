@@ -42,6 +42,8 @@ dependencies:
   flutter_secure_storage: ^8.0.0
   shared_preferences: ^2.1.1
   image_picker: ^0.8.7+1
+  cached_network_image: ^3.2.1
+  path_provider: ^2.0.15
 
 dev_dependencies:
   flutter_test:

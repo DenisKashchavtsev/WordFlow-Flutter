@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -133,10 +134,12 @@ class _LearningCategories extends State<LearningCategories> {
                                     },
                                   ),
                                 ),
-                                Image.network(
-                                  categories[index].image.isNotEmpty
+                                CachedNetworkImage(
+                                  imageUrl: categories[index].image.isNotEmpty
                                       ? categories[index].image
-                                      : 'https://placehold.co/40x40',
+                                      : 'https://via.placeholder.com/40x40',
+                                  placeholder: (context, url) => const CircularProgressIndicator(),
+                                  errorWidget: (context, url, error) => const Icon(Icons.error),
                                   width: 50,
                                 ),
                                 Padding(

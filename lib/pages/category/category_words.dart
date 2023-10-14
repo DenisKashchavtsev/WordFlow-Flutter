@@ -100,6 +100,7 @@ class _CategoryWords extends State<CategoryWords> {
           child: BlocBuilder<CategoryCubit, CategoryState>(
             builder: (context, state) {
               if (state is CategoryStateLoaded) {
+
                 if (_isChecked.isEmpty) {
                   _isChecked = List<bool>.filled(state.words.length, false);
                 }
