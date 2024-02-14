@@ -11,8 +11,8 @@ class Learning extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
-      child: Column(
-        children: const [
+      child: const Column(
+        children: [
           LearningHeader(),
           Expanded(child: LearningCategories())
         ],

@@ -6,9 +6,8 @@ class AuthService {
   Dio get _dio => DioClient().getClient();
 
   Future<Map<String, dynamic>> login(String email, String password) async {
-    print('&&&&&&');
     try {
-      final response = await _dio.post('api/auth/token/login', data: {
+      final response = await _dio.post('auth/token/login', data: {
         'email': email,
         'password': password,
       });
@@ -22,7 +21,7 @@ class AuthService {
   Future<Map<String, dynamic>> register(
       String name, String email, String password) async {
     try {
-      final response = await _dio.post('api/auth/registration', data: {
+      final response = await _dio.post('auth/registration', data: {
         'name': name,
         'email': email,
         'password': password,
@@ -36,8 +35,9 @@ class AuthService {
 
   Future<Map<String, dynamic>> getCurrentUser() async {
     try {
-      final response = await _dio.get('api/users/me');
+      final response = await _dio.get('users/me');
 
+      print(response);
       return response.data;
     } catch (e) {
       throw Exception('Error: $e');
@@ -46,7 +46,7 @@ class AuthService {
 
   Future<Map<String, dynamic>> refreshToken(String refreshToken) async {
     try {
-      final response = await _dio.get('api/auth/token/refresh');
+      final response = await _dio.get('auth/token/refresh');
 
       return response.data;
     } catch (e) {

@@ -140,7 +140,7 @@ class _LearningCategories extends State<LearningCategories> {
                                       : 'https://via.placeholder.com/40x40',
                                   placeholder: (context, url) => const CircularProgressIndicator(),
                                   errorWidget: (context, url, error) => const Icon(Icons.error),
-                                  width: 50,
+                                  width: 40,
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -156,7 +156,9 @@ class _LearningCategories extends State<LearningCategories> {
                                   style: Styles.textCommon12,
                                 ),
                                 IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      NavigationService().openSteps(categories[index].id);
+                                    },
                                     iconSize: 40,
                                     splashRadius: 5,
                                     icon: Image.asset(

@@ -10,15 +10,15 @@ class NavigationService {
   BuildContext? get context => navigationKey.currentContext!;
 
   void openLogin() {
-    Navigator.pushReplacementNamed(context!, '/login');
+    Navigator.pushNamed(context!, '/login');
   }
 
   void openRegistration() {
-    Navigator.pushReplacementNamed(context!, '/registration');
+    Navigator.pushNamed(context!, '/registration');
   }
 
   void openDashboard({selectedIndex = 0}) {
-    Navigator.pushReplacementNamed(context!, '/dashboard', arguments: {
+    Navigator.pushNamed(context!, '/dashboard', arguments: {
       'selectedIndex': selectedIndex,
     });
   }
@@ -54,4 +54,11 @@ class NavigationService {
   void back() {
     Navigator.pop(context!);
   }
+
+  void openSteps(String categoryId) {
+    Navigator.pushNamed(context!, '/steps', arguments: {
+      'categoryId': categoryId,
+    });
+  }
+
 }

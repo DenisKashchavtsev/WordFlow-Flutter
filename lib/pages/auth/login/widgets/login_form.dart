@@ -13,8 +13,12 @@ class LoginForm extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+
   @override
   Widget build(BuildContext context) {
+    _emailController.text = 'test@gmail.com';
+    _passwordController.text = '1234';
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [

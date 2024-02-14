@@ -12,6 +12,7 @@ import 'pages/category/update_category.dart';
 import 'pages/dashboard.dart';
 import 'pages/auth/login/login.dart';
 import 'pages/auth/register/register.dart';
+import 'pages/learning/steps/steps.dart';
 import 'pages/word/update_word.dart';
 
 class Routes {
@@ -24,11 +25,11 @@ class Routes {
       '/': (context) => const Greeting(),
       '/login': (context) => BlocProvider(
             create: (BuildContext context) => UserCubit(),
-            child: Login(),
+            child: const Login(),
           ),
       '/registration': (context) => BlocProvider(
             create: (BuildContext context) => UserCubit(),
-            child: Register(),
+            child: const Register(),
           ),
       '/dashboard': (context) => MultiBlocProvider(
             providers: [
@@ -80,6 +81,12 @@ class Routes {
             create: (BuildContext context) => WordCubit(),
             child: const UpdateWord(),
           ),
+
+      '/steps': (context) => BlocProvider(
+        create: (BuildContext context) => CategoryCubit(),
+        child: const Steps(),
+      ),
+
     };
   }
 }

@@ -10,7 +10,7 @@ class WordService {
 
   Future<Map<String, dynamic>> create(String categoryId, String source, String translate) async {
     try {
-      final response = await _dio.post('/api/words', data: {
+      final response = await _dio.post('words', data: {
         'categoryId': categoryId,
         'source': source,
         'translate': translate,
@@ -24,7 +24,7 @@ class WordService {
 
   Future<Map<String, dynamic>> update(String id, String source, String translate) async {
     try {
-      final response = await _dio.put('/api/words/$id', data: {
+      final response = await _dio.put('words/$id', data: {
         'source': source,
         'translate': translate,
       });
@@ -37,7 +37,7 @@ class WordService {
 
   Future<WordWord> show(String id) async {
     try {
-      final response = await _dio.get('/api/word-words/$id');
+      final response = await _dio.get('word-words/$id');
 
       return WordWord(
         id: response.data['id'],
@@ -51,7 +51,7 @@ class WordService {
 
   Future delete(List ids) async {
     try {
-      await _dio.delete('/api/words', data: {
+      await _dio.delete('words', data: {
         'ids': ids
       });
     } catch (e) {

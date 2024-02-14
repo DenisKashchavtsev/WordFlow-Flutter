@@ -11,7 +11,7 @@ class CategoryService {
 
   Future<List<WordCategory>> getList(int page) async {
     try {
-      final response = await _dio.get('/api/word-categories?page=$page');
+      final response = await _dio.get('word-categories?page=$page');
 
       if (jsonDecode(response.data)['data'] is List) {
         List<WordCategory> categoryList =
@@ -35,7 +35,7 @@ class CategoryService {
 
   Future<Map<String, dynamic>> create(String name) async {
     try {
-      final response = await _dio.post('/api/word-categories', data: {
+      final response = await _dio.post('word-categories', data: {
         'name': name,
       });
 
@@ -47,7 +47,7 @@ class CategoryService {
 
   Future<Map<String, dynamic>> update(String id, String name) async {
     try {
-      final response = await _dio.put('/api/word-categories/$id', data: {
+      final response = await _dio.put('word-categories/$id', data: {
         'name': name,
       });
 
@@ -59,7 +59,7 @@ class CategoryService {
 
   Future<WordCategory> show(String id) async {
     try {
-      final response = await _dio.get('/api/word-categories/$id');
+      final response = await _dio.get('word-categories/$id');
 
       return WordCategory(
         id: response.data['id'],
@@ -74,7 +74,7 @@ class CategoryService {
 
   Future<List<WordWord>> getCategoryWords(String id, int page) async {
     try {
-      final response = await _dio.get('/api/word-categories/$id/words');
+      final response = await _dio.get('word-categories/$id/words');
       final data = jsonDecode(response.data)['data'];
       if (data is List) {
         List<WordWord> wordList = (data).map((item) {
@@ -97,7 +97,7 @@ class CategoryService {
 
   Future delete(List ids) async {
     try {
-      await _dio.delete('/api/word-categories', data: {
+      await _dio.delete('word-categories', data: {
         'ids': ids
       });
     } catch (e) {
