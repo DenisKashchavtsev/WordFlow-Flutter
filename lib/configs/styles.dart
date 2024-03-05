@@ -9,11 +9,9 @@ class Styles {
 
   /// Buttons
   static ButtonStyle buttonTransparentStyles = ElevatedButton.styleFrom(
-      primary: Colors.transparent,
       textStyle: const TextStyle(color: Colors.black));
 
   static ButtonStyle buttonFilledStyles = ElevatedButton.styleFrom(
-    primary: Styles.colorMain,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(15.0),
     ),
@@ -27,7 +25,6 @@ class Styles {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),
-      primary: Colors.white,
       side: const BorderSide(
         width: 2,
         color: Styles.colorMain,
@@ -39,7 +36,6 @@ class Styles {
 
   /// TextButton
   static ButtonStyle buttonTextStyles = TextButton.styleFrom(
-    primary: colorMain,
     textStyle: const TextStyle(
         fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
   );

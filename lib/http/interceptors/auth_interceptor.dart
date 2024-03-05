@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+import '../../cubits/auth/token/token_cubit.dart';
 import '../../cubits/user/user_cubit.dart';
 
 class AuthInterceptor extends Interceptor {
@@ -27,8 +28,10 @@ class AuthInterceptor extends Interceptor {
       refreshToken = value;
     });
 
-    if (err.response?.statusCode == 401) {
-      UserCubit().refreshToken(refreshToken);
+    if (err.requestOptions.path != 'auth/token/login') {
+      if (err.response?.statusCode == 401) {
+        TokenCubit().refreshToken(refreshToken);
+      }
     }
 
     super.onError(err, handler);

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../configs/styles.dart';
+import '../../../../cubits/auth/token/token_cubit.dart';
 import '../../../../cubits/user/user_cubit.dart';
-import '../../../../widgets/notifications/error.dart';
 import '../../../../widgets/wrappers/elevated_button_wrapper.dart';
 import '../../../../widgets/wrappers/text_field_wrapper.dart';
 
@@ -22,17 +22,16 @@ class LoginForm extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        BlocBuilder<UserCubit, UserState>(
+        BlocBuilder<TokenCubit, TokenState>(
           builder: (context, state) {
-            if (state is UserStateLoading) {
+
+            if (state is TokenStateLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
             }
-            if (state is UserStateError) {
-              return ErrorNotification(errorMessage: state.message);
-            }
-            return const Text('');
+
+            return const SizedBox.shrink();
           },
         ),
         Column(
@@ -73,7 +72,7 @@ class LoginForm extends StatelessWidget {
                   Expanded(
                     child: ElevatedButtonWrapper(
                         onPressed: () {
-                          context.read<UserCubit>().login(
+                          context.read<TokenCubit>().getToken(
                               _emailController.text, _passwordController.text);
                         },
                         child: const Text('Login')),

@@ -1,6 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'services/snack_bar_global_service.dart';
 
 import 'configs/styles.dart';
 import 'cubits/user/user_cubit.dart';
@@ -21,6 +21,7 @@ class App extends StatelessWidget {
         BlocProvider(create: (_) => UserCubit()),
       ],
       child: MaterialApp(
+        scaffoldMessengerKey: SnackBarGlobalService.key,
         builder: (context, child) {
           double statusBarHeight = MediaQuery.of(context).padding.top;
           double navigationBarHeight = MediaQuery.of(context).padding.bottom;

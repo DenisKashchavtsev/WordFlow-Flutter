@@ -44,7 +44,6 @@ dependencies:
   image_picker: ^0.8.7+1
   cached_network_image: ^3.2.1
   path_provider: ^2.0.15
-  webview_flutter: ^4.4.2
   flutter_inappwebview: ^6.0.0
 
 dev_dependencies:

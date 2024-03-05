@@ -6,16 +6,12 @@ class AuthService {
   Dio get _dio => DioClient().getClient();
 
   Future<Map<String, dynamic>> login(String email, String password) async {
-    try {
       final response = await _dio.post('auth/token/login', data: {
         'email': email,
         'password': password,
       });
 
       return response.data;
-    } catch (e) {
-      throw Exception('Error: $e');
-    }
   }
 
   Future<Map<String, dynamic>> register(

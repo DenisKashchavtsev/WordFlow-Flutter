@@ -1,31 +1,19 @@
 part of 'user_cubit.dart';
 
-@immutable
-abstract class UserState {
-  get user => null;
-}
+abstract class UserState {}
 
 class UserStateInitial extends UserState {}
 
 class UserStateLoading extends UserState {}
 
-class UserStateLoaded extends UserState {}
+class UserStateLoaded extends UserState {
+  final User user;
 
-class UserStateCurrentUserLoaded extends UserState {
-  @override
-  final Map<String, dynamic> user;
-
-  UserStateCurrentUserLoaded({required this.user});
-}
-
-class UserStateToken extends UserState {
-  final Map<String, dynamic>? tokens;
-
-  UserStateToken({this.tokens});
+  UserStateLoaded({required this.user});
 }
 
 class UserStateError extends UserState {
-  final String message;
+  final String? message;
 
   UserStateError({required this.message});
 }

@@ -5,6 +5,8 @@ import 'package:word_flow/pages/category/show_category.dart';
 import 'package:word_flow/pages/greeting.dart';
 import 'package:word_flow/pages/word/create_word.dart';
 
+import 'cubits/auth/register/register_cubit.dart';
+import 'cubits/auth/token/token_cubit.dart';
 import 'cubits/category/category_cubit.dart';
 import 'cubits/user/user_cubit.dart';
 import 'cubits/word/word_cubit.dart';
@@ -24,11 +26,11 @@ class Routes {
     return {
       '/': (context) => const Greeting(),
       '/login': (context) => BlocProvider(
-            create: (BuildContext context) => UserCubit(),
+            create: (BuildContext context) => TokenCubit(),
             child: const Login(),
           ),
       '/registration': (context) => BlocProvider(
-            create: (BuildContext context) => UserCubit(),
+            create: (BuildContext context) => RegisterCubit(),
             child: const Register(),
           ),
       '/dashboard': (context) => MultiBlocProvider(
